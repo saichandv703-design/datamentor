@@ -1,15 +1,51 @@
 import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardContent } from '../../components/ui/Card';
-import { BookOpen, Users, ShoppingCart, Plus } from 'lucide-react';
+import { BookOpen, Users, ShoppingCart, Plus, Database } from 'lucide-react';
 import { Button } from '../../components/ui/Button';
+import { seedDatabase } from '../../lib/seed-data';
+import { useState } from 'react';
 
 export function Admin() {
+  const [isSeeding, setIsSeeding] = useState(false);
+  const [seedMessage, setSeedMessage] = useState('');
+
+  const handleSeedDatabase = async () => {
+    setIsSeeding(true);
+    setSeedMessage('');
+    try {
+      await seedDatabase();
+      setSeedMessage('Database seeded successfully! Refresh the Courses page to see the new content.');
+    } catch (error) {
+      setSeedMessage('Error seeding database. Make sure you are logged in.');
+      console.error(error);
+    } finally {
+      setIsSeeding(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Admin Dashboard</h1>
-          <p className="text-xl text-gray-600">Manage your platform</p>
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">Admin Dashboard</h1>
+              <p className="text-xl text-gray-600">Manage your platform</p>
+            </div>
+            <Button
+              onClick={handleSeedDatabase}
+              disabled={isSeeding}
+              className="bg-green-600 hover:bg-green-700"
+            >
+              <Database className="h-4 w-4 mr-2" />
+              {isSeeding ? 'Seeding...' : 'Seed Database'}
+            </Button>
+          </div>
+          {seedMessage && (
+            <div className={`p-4 rounded-lg ${seedMessage.includes('Error') ? 'bg-red-50 text-red-800' : 'bg-green-50 text-green-800'}`}>
+              {seedMessage}
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
