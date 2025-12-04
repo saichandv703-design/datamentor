@@ -105,13 +105,13 @@ export function CodeEditor({ lessonId, initialCode = '', language = 'python' }: 
       <textarea
         value={code}
         onChange={(e) => setCode(e.target.value)}
-        className="w-full h-64 p-4 font-mono text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+        className="w-full h-64 p-4 font-mono text-sm border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-gfg-green focus:border-gfg-green bg-white"
         placeholder={language === 'python' ? 'print("Hello, World!")' : 'SELECT * FROM table;'}
         spellCheck={false}
       />
 
       {showAiHelp && aiHelp && (
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200 p-4 rounded-lg relative">
+        <div className="bg-green-50 border-2 border-gfg-green p-4 rounded-lg relative">
           <button
             onClick={() => setShowAiHelp(false)}
             className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
@@ -119,7 +119,7 @@ export function CodeEditor({ lessonId, initialCode = '', language = 'python' }: 
             <X className="h-4 w-4" />
           </button>
           <div className="flex items-start gap-3">
-            <Sparkles className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+            <Sparkles className="h-5 w-5 text-gfg-green mt-1 flex-shrink-0" />
             <div className="text-sm text-gray-700 whitespace-pre-line">{aiHelp}</div>
           </div>
         </div>

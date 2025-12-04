@@ -7,34 +7,28 @@ export function Navbar() {
   const { user, profile, signOut } = useAuth();
 
   return (
-    <nav className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <nav className="bg-white shadow-sm border-b-4 border-gfg-green sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <BookOpen className="h-8 w-8 text-blue-600" />
-            <span className="text-2xl font-bold text-gray-900">DataLearn</span>
+            <BookOpen className="h-8 w-8 text-gfg-green" />
+            <span className="text-2xl font-bold text-gray-900">CodeLearn</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/courses" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-              Courses
+            <Link to="/courses" className="text-gray-700 hover:text-gfg-green font-medium transition-colors">
+              Tutorials
             </Link>
-            <Link to="/tutorial/sql-tutorial" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-              SQL Tutorial
-            </Link>
-            <Link to="/challenges" className="text-gray-700 hover:text-blue-600 font-medium transition-colors flex items-center gap-1">
+            <Link to="/challenges" className="text-gray-700 hover:text-gfg-green font-medium transition-colors flex items-center gap-1">
               <Trophy className="h-4 w-4" />
-              Challenges
-            </Link>
-            <Link to="/leaderboard" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-              Leaderboard
+              Practice
             </Link>
             {user && (
               <>
-                <Link to="/dashboard" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                <Link to="/dashboard" className="text-gray-700 hover:text-gfg-green font-medium transition-colors">
                   Dashboard
                 </Link>
-                <Link to="/labs" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+                <Link to="/labs" className="text-gray-700 hover:text-gfg-green font-medium transition-colors">
                   Labs
                 </Link>
               </>

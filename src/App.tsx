@@ -11,7 +11,7 @@ import { Dashboard } from './pages/Dashboard';
 import { LearnCourse } from './pages/LearnCourse';
 import { Labs } from './pages/Labs';
 import { Cart } from './pages/Cart';
-import { Challenges } from './pages/Challenges';
+import { Practice } from './pages/Practice';
 import { Leaderboard } from './pages/Leaderboard';
 import { Tutorial } from './pages/Tutorial';
 import { Admin } from './pages/admin/Admin';
@@ -66,7 +66,7 @@ function AppContent() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:slug" element={<CourseDetail />} />
           <Route path="/tutorial/:slug" element={<Tutorial />} />
-          <Route path="/challenges" element={<Challenges />} />
+          <Route path="/challenges" element={<Practice />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
 
           <Route
